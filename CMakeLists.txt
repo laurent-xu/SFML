@@ -1,5 +1,17 @@
 cmake_minimum_required(VERSION 2.8.3)
 
+execute_process(COMMAND git submodule update --init -- ThirdParty/openal-soft
+WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+execute_process(COMMAND cmake .
+WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/openal-soft)
+execute_process(COMMAND make
+WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/ThirdParty/openal-soft)
+set(OPENAL_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/ThirdParty/openal-soft/include
+CACHE PATH "openal include directory")
+set(OPENAL_LIBRARY ${PROJECT_SOURCE_DIR}/ThirdParty/openal-soft
+CACHE PATH "openal lib directory")
+
+
 # define a macro that helps defining an option
 macro(sfml_set_option var default type docstring)
     if(NOT DEFINED ${var})

@@ -322,7 +322,7 @@ if(SFML_STATIC_LIBRARIES)
     if(NOT ${FIND_SFML_AUDIO_COMPONENT} EQUAL -1)
 
         # find libraries
-        find_sfml_dependency(OPENAL_LIBRARY "OpenAL" openal openal32)
+        #find_sfml_dependency(OPENAL_LIBRARY "OpenAL" openal openal32)
         find_sfml_dependency(OGG_LIBRARY "Ogg" ogg)
         find_sfml_dependency(VORBIS_LIBRARY "Vorbis" vorbis)
         find_sfml_dependency(VORBISFILE_LIBRARY "VorbisFile" vorbisfile)
